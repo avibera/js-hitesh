@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body style="background-color: #212112;">
+    <script>
+        const xhr = new XMLHttpRequest();
+
+        xhr.open('GET', 'https://apidojo-yahoo-finance-v1.p.rapidapi.com/news/v2/get-details')
+        xhr.onreadystatechange = function() {
+            console.log(xhr.readyState);
+            
+            if (xhr.readyState === 4) {
+                const value = JSON.parse(this.responseText)
+                console.log(value)
+            }
+        }
+        xhr.send()
+    </script>
+</body>
+
+</html>
